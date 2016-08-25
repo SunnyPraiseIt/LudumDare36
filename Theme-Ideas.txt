@@ -1,12 +1,12 @@
-1.  A Diffirent Kind of Combat
-2.  Alchemy
-3.  Ancient Technology
-4.  Controlling Many
-5.  Day and Night
-6.  Don't Kill Anything
-7.  Going Deeper
-8.  Hunted
-9.  Inconvenient Superpowers
+1. A Diffirent Kind of Combat
+2. Alchemy
+3. Ancient Technology
+4. Controlling Many
+5. Day and Night
+6. Don't Kill Anything
+7. Going Deeper
+8. Hunted
+9. Inconvenient Superpowers
 10. Isolation
 11. Keep it Alive
 12. Level Changes While You're Playing
