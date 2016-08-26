@@ -6,14 +6,17 @@
 5. Day and Night
 6. Don't Kill Anything
 7. Going Deeper
+	-Quad penetration.
 8. Hunted
 9. Inconvenient Superpowers
 10. Isolation
 11. Keep it Alive
 12. Level Changes While You're Playing
+	-Rolling grid, when you move away it regenerates.
 13. Magic Gone Wrong
 14. One Enemy
 15. One Room
+	-Player in padded cell, but hallucinating combat in dungeons.
 16. Plan Then Execute
 17. Power Source
 18. Start Small
