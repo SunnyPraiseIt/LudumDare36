@@ -11,6 +11,14 @@
 	-Controll mutliple copies of yourself through a sidescroller.
 5. Day and Night
 	-survival
+	-dying star
+	-Ancient tech on planet X is far supirior to ours.
+	-Stargate?
+4. Controlling Many
+	-Controll mutliple copies of yourself through a sidescroller.
+5. Day and Night
+	-Lighting in a steal game?
+	-Weredogo
 6. Don't Kill Anything
 	-Passive agressivly destroying people.
 	-sneakgame.
@@ -34,6 +42,8 @@
 	-You must find the void, or happiness will kill you.
 11. Keep it Alive
 	-Quest to keep Doggo form dieing.(Must save it from doggo assassins and dogarambe)
+	-The player is given a pet and must protect it, since enemies only want to kill it.
+	-Same as above but also 1st idea in 19.
 12. Level Changes While You're Playing
 	-Maze changing
 	-Rolling grid, when you move away it regenerates.
@@ -42,6 +52,8 @@
 14. One Enemy
 	-The player is the last enemy and they must defat the protaganists.
 	-This one enemy could be the drive of the game (shows up and provages the player to continue on a dangerous path. (example: slenderman, Bowser)
+	-Every time the player casts a spell it will cast as something diffirent
+
 15. One Room
 	-Player in padded cell, but hallucinating combat in dungeons. You are broken and must collect your pieces.
 16. Plan Then Execute
@@ -52,4 +64,4 @@
 18. Start Small
 	-You are little pupper. Grow.
 19. Upgrade
-	-Choose a familiar, upgrade them.
+	-Choose a familiar, upgrade them. <-- James likes this and already has great assets for it.
