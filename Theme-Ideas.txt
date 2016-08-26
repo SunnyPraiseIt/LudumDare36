@@ -36,6 +36,8 @@
 15. One Room
 	-Player in padded cell, but hallucinating combat in dungeons. You are broken and must collect your pieces.
 16. Plan Then Execute
+	-Heists?
+	-RTS?
 17. Power Source
 	-You are a dying light, absorb life energy to survive.
 18. Start Small
