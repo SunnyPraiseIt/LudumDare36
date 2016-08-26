@@ -6,7 +6,9 @@
 	-Controll mutliple copies of yourself through a sidescroller.
 5. Day and Night
 6. Don't Kill Anything
+	-Passive agressivly destroying people.
 7. Going Deeper
+	-Quad penetration.
 	-Tunneling down a cave unlessly (such as a cave in terraria)
 8. Hunted
 9. Inconvenient Superpowers
@@ -14,9 +16,11 @@
 11. Keep it Alive
 12. Level Changes While You're Playing
 	-Maze changing
+	-Rolling grid, when you move away it regenerates.
 13. Magic Gone Wrong
 14. One Enemy
 15. One Room
+	-Player in padded cell, but hallucinating combat in dungeons.
 16. Plan Then Execute
 17. Power Source
 18. Start Small
