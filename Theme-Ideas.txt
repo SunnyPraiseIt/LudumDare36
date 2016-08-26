@@ -3,6 +3,7 @@
 	-Throw dildos at enemies.
 2. Alchemy
 	-You never know what's gonna come through that door.
+	-There are randomly generated pots, with random effects that the player will not know about until after taking them.
 	-You throw random potions as your weapon.
 3. Ancient Technology
 	-dying star.
@@ -39,6 +40,7 @@
 13. Magic Gone Wrong
 	-Your magic wand now hurts you everytime you have to use it. (Could be damage or take a limb)
 14. One Enemy
+	-The player is the last enemy and they must defat the protaganists.
 	-This one enemy could be the drive of the game (shows up and provages the player to continue on a dangerous path. (example: slenderman, Bowser)
 15. One Room
 	-Player in padded cell, but hallucinating combat in dungeons. You are broken and must collect your pieces.
