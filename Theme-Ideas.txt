@@ -3,14 +3,17 @@
 2. Alchemy
 3. Ancient Technology
 4. Controlling Many
+	-Controll mutliple copies of yourself through a sidescroller.
 5. Day and Night
 6. Don't Kill Anything
 7. Going Deeper
+	-Tunneling down a cave unlessly (such as a cave in terraria)
 8. Hunted
 9. Inconvenient Superpowers
 10. Isolation
 11. Keep it Alive
 12. Level Changes While You're Playing
+	-Maze changing
 13. Magic Gone Wrong
 14. One Enemy
 15. One Room
