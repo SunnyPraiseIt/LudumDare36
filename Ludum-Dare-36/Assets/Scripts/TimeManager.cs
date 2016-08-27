@@ -19,12 +19,7 @@ public class TimeManager : MonoBehaviour
     GameObject Sun;
 
     [SerializeField]
-    float Wait, RotSpeed;
-
-    public int sunPos;
-
-    float Rotation, internalClock;
-    bool move;
+    float RotSpeed;
 
 	void Start ()
     {
@@ -32,32 +27,16 @@ public class TimeManager : MonoBehaviour
             Sun = GameObject.Find("Directional Light");
 
         if (RotSpeed == 0)
-            RotSpeed = 1;
-
-        Rotation = 180 / 12;
-        sunPos = 1;
-        internalClock = 0;
+            RotSpeed = 0.0025f;
 	}
 	
 	void Update ()
     {
-        if (internalClock < Wait)
-            internalClock += Time.deltaTime;
-        else if(internalClock >= Wait && !move)
-        {
-            move = true;
-            Rotation += Sun.transform.rotation.y;
-        }
 
-        if (move)
-            RotateSun();      
 	}
 
-    void RotateSun()
+    void FixedUpdate()
     {
-        if (Sun.transform.rotation.y < Rotation)
-            Sun.transform.Rotate(new Vector3(Time.deltaTime / RotSpeed, Time.deltaTime / RotSpeed, 0));
-        else
-            move = false;
+        Sun.transform.Rotate(new Vector3(RotSpeed, 0, 0));
     }
 }
