@@ -12,19 +12,21 @@ public class TimeManager : MonoBehaviour
     //              Light path to current level
     //              Particles on dial for finished level sections
     //
-    //Loss condition - Tell the main camera to play the loss cut scene
+    //Loss / win condition - Tell the main camera to play the loss / win cut scene
     /////////////////////////////////////////////////////////////////////
 
     [SerializeField]
     GameObject Sun;
 
     [SerializeField]
-    float Wait, RotSpeed;
+    float RotSpeed;
+
+    //Event Manager Var
 
     public int sunPos;
+    public float nextRot;
 
-    float Rotation, internalClock;
-    bool move;
+    int increment;
 
 	void Start ()
     {
@@ -32,32 +34,43 @@ public class TimeManager : MonoBehaviour
             Sun = GameObject.Find("Directional Light");
 
         if (RotSpeed == 0)
-            RotSpeed = 1;
+            RotSpeed = 0.0025f;
 
-        Rotation = 180 / 12;
+        nextRot = Sun.transform.rotation.x + 15;
         sunPos = 1;
-        internalClock = 0;
+        increment = 0;
 	}
-	
-	void Update ()
+
+    void FixedUpdate()
     {
-        if (internalClock < Wait)
-            internalClock += Time.deltaTime;
-        else if(internalClock >= Wait && !move)
+        increment++;
+
+        Sun.transform.Rotate(new Vector3(RotSpeed, RotSpeed, 0));
+
+        if(increment * RotSpeed >= nextRot)
         {
-            move = true;
-            Rotation += Sun.transform.rotation.y;
+            sunPos++;
+            nextRot += 15;
         }
 
-        if (move)
-            RotateSun();      
-	}
-
-    void RotateSun()
-    {
-        if (Sun.transform.rotation.y < Rotation)
-            Sun.transform.Rotate(new Vector3(Time.deltaTime / RotSpeed, Time.deltaTime / RotSpeed, 0));
-        else
-            move = false;
+        //switch(sunPos)
+        //{
+        //    case 1:
+        //        //open first door
+        //        break;
+        //    case 3:
+        //        //open second door
+        //        break;
+        //    case 6:
+        //        //open thrid door
+        //        break;
+        //    case 9:
+        //        //open fourth door
+        //        break;
+        //    case 12:
+        //        //if not all things finished lose condition
+        //        //else win condition
+        //        break;
+        //}
     }
 }
