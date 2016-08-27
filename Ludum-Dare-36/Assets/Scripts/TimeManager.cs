@@ -6,13 +6,13 @@ public class TimeManager : MonoBehaviour
     /////////////////////////////////////////////////////////////////////
     //This script is for managing:
     //
-    //Sun movement - Sun moves over time
+    //Sun movement - Sun moves over time -
     //
-    //Sun effects - Opening new levels
-    //              Light path to current level
-    //              Particles on dial for finished level sections
+    //Sun effect events - Opening new levels -
+    //                    Set beacons -
+    //                    Particles on dial for finished level sections -
     //
-    //Loss / win condition - Tell the main camera to play the loss / win cut scene
+    //Loss / win condition - Tell the main camera to play the loss / win cut scene -
     /////////////////////////////////////////////////////////////////////
 
     [SerializeField]
@@ -21,7 +21,6 @@ public class TimeManager : MonoBehaviour
     [SerializeField]
     float RotSpeed;
 
-    //Event Manager Var
     [SerializeField]
     EventManager manager;
 
@@ -29,6 +28,7 @@ public class TimeManager : MonoBehaviour
     public float nextRot;
 
     int increment;
+    bool lvl1, lvl2, lvl3, lvl4;
 
 	void Start ()
     {
@@ -41,10 +41,15 @@ public class TimeManager : MonoBehaviour
         if (manager == null)
             manager = GameObject.Find("EventManager").GetComponent<EventManager>();
 
+        manager.AddLisener((int)EventManager.EVENTS.Puzzle1Complete, Level1Complete);
+        manager.AddLisener((int)EventManager.EVENTS.Puzzle2Complete, Level2Complete);
+        manager.AddLisener((int)EventManager.EVENTS.Puzzle3Complete, Level3Complete);
+        manager.AddLisener((int)EventManager.EVENTS.Puzzle4Complete, Level4Complete);
+
         nextRot = Sun.transform.rotation.x + 15;
         sunPos = 1;
         increment = 0;
-        
+        lvl1 = lvl2 = lvl3 = lvl4 = false;
 	}
 
     void FixedUpdate()
@@ -59,5 +64,43 @@ public class TimeManager : MonoBehaviour
             nextRot += 15;
         }
 
+        switch(sunPos)
+        {
+            case 3:
+                manager.Activate((int)EventManager.EVENTS.Puzzle2Start);
+                break;
+            case 6:
+                manager.Activate((int)EventManager.EVENTS.Puzzle3Start);
+                break;
+            case 9:
+                manager.Activate((int)EventManager.EVENTS.Puzzle4Start);
+                break;
+            case 12:
+                if(lvl1 && lvl2 && lvl3 && lvl4)
+                    manager.Activate((int)EventManager.EVENTS.WinGame);
+                else
+                    manager.Activate((int)EventManager.EVENTS.LoseGame);
+                break;
+        }
+    }
+
+    void Level1Complete()
+    {
+        lvl1 = true;
+    }
+
+    void Level2Complete()
+    {
+        lvl2 = true;
+    }
+
+    void Level3Complete()
+    {
+        lvl3 = true;
+    }
+
+    void Level4Complete()
+    {
+        lvl4 = true;
     }
 }
