@@ -22,6 +22,8 @@ public class TimeManager : MonoBehaviour
     float RotSpeed;
 
     //Event Manager Var
+    [SerializeField]
+    EventManager manager;
 
     public int sunPos;
     public float nextRot;
@@ -36,9 +38,13 @@ public class TimeManager : MonoBehaviour
         if (RotSpeed == 0)
             RotSpeed = 0.0025f;
 
+        if (manager == null)
+            manager = GameObject.Find("EventManager").GetComponent<EventManager>();
+
         nextRot = Sun.transform.rotation.x + 15;
         sunPos = 1;
         increment = 0;
+        
 	}
 
     void FixedUpdate()
@@ -53,24 +59,5 @@ public class TimeManager : MonoBehaviour
             nextRot += 15;
         }
 
-        //switch(sunPos)
-        //{
-        //    case 1:
-        //        //open first door
-        //        break;
-        //    case 3:
-        //        //open second door
-        //        break;
-        //    case 6:
-        //        //open thrid door
-        //        break;
-        //    case 9:
-        //        //open fourth door
-        //        break;
-        //    case 12:
-        //        //if not all things finished lose condition
-        //        //else win condition
-        //        break;
-        //}
     }
 }

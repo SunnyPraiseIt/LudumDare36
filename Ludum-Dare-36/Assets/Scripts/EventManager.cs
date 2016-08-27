@@ -5,10 +5,25 @@ using System.Collections;
 using System.Collections.Generic;
 
 
+
 public class EventManager : MonoBehaviour
 {
-   
-     List<UnityEvent> Actions = new List<UnityEvent>();
+    public enum EVENTS
+    {
+      
+      Puzzle1Complete,
+      Puzzle2Start,
+      Puzzle2Complete,
+      Puzzle3Start,
+      Puzzle3Complete,
+      Puzzle4Start,
+      Puzzle4Complete,
+      WinGame,
+      LoseGame
+             
+    };
+
+    List<UnityEvent> Actions = new List<UnityEvent>();
     void OnEnable()
     {
         for (int i = 0; i < 6; i++)
@@ -17,14 +32,6 @@ public class EventManager : MonoBehaviour
             Actions.Add(Checkpoint);
         }
     }
-    /*
-        Actions[0] = Checkpoint 1 complete
-          Actions[1] = Checkpoint 2 complete
-            Actions[2] = Checkpoint 3 complete
-              Actions[3] = Checkpoint 4 complete
-                Actions[4] = GameWin
-                  Actions[5] = GameLose
-        */
 
     void Start()
     {
