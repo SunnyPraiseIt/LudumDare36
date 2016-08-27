@@ -39,6 +39,7 @@ public class TimeManager : MonoBehaviour
         nextRot = Sun.transform.rotation.x + 15;
         sunPos = 1;
         increment = 0;
+        
 	}
 
     void FixedUpdate()
