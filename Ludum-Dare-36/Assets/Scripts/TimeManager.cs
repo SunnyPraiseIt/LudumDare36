@@ -21,6 +21,10 @@ public class TimeManager : MonoBehaviour
     [SerializeField]
     float RotSpeed;
 
+    public int sunPos;
+
+    public float nextRot;
+
 	void Start ()
     {
         if (Sun == null)
@@ -28,15 +32,19 @@ public class TimeManager : MonoBehaviour
 
         if (RotSpeed == 0)
             RotSpeed = 0.0025f;
-	}
-	
-	void Update ()
-    {
 
+        nextRot = Sun.transform.rotation.x + 15;
+        sunPos = 1;
 	}
 
     void FixedUpdate()
     {
-        Sun.transform.Rotate(new Vector3(RotSpeed, 0, 0));
+        Sun.transform.Rotate(new Vector3(RotSpeed, RotSpeed, 0));
+
+        if(Sun.transform.rotation.x >= nextRot)
+        {
+            sunPos++;
+            nextRot = Sun.transform.rotation.x + 15;
+        }
     }
 }
