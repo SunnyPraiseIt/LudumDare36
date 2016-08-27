@@ -12,7 +12,7 @@ public class TimeManager : MonoBehaviour
     //              Light path to current level
     //              Particles on dial for finished level sections
     //
-    //Loss condition - Tell the main camera to play the loss cut scene
+    //Loss / win condition - Tell the main camera to play the loss / win cut scene
     /////////////////////////////////////////////////////////////////////
 
     [SerializeField]
@@ -21,8 +21,9 @@ public class TimeManager : MonoBehaviour
     [SerializeField]
     float RotSpeed;
 
-    public int sunPos;
+    //Event Manager Var
 
+    public int sunPos;
     public float nextRot;
 
     int increment;
@@ -51,5 +52,25 @@ public class TimeManager : MonoBehaviour
             sunPos++;
             nextRot += 15;
         }
+
+        //switch(sunPos)
+        //{
+        //    case 1:
+        //        //open first door
+        //        break;
+        //    case 3:
+        //        //open second door
+        //        break;
+        //    case 6:
+        //        //open thrid door
+        //        break;
+        //    case 9:
+        //        //open fourth door
+        //        break;
+        //    case 12:
+        //        //if not all things finished lose condition
+        //        //else win condition
+        //        break;
+        //}
     }
 }
