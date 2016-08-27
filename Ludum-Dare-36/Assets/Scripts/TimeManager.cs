@@ -18,6 +18,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField]
     GameObject Sun;
 
+
     [SerializeField]
     float Wait, RotSpeed;
 
@@ -26,6 +27,7 @@ public class TimeManager : MonoBehaviour
     float Rotation, internalClock;
     bool move;
 
+  
 	void Start ()
     {
         if (Sun == null)
@@ -60,4 +62,5 @@ public class TimeManager : MonoBehaviour
         else
             move = false;
     }
+
 }
