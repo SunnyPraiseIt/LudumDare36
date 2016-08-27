@@ -565,6 +565,106 @@ ModelImporter:
     4300194: Box1501_001
     4300196: Box1448_001
     4300198: Box1472_001
+    6400000: Box002_000
+    6400002: Box009_000
+    6400004: Box012_000
+    6400006: Box1055_001
+    6400008: Box1078_001
+    6400010: Box1391_001
+    6400012: Box1404_001
+    6400014: Box1435_001
+    6400016: Box1438_001
+    6400018: Box1448_001
+    6400020: Box1464_001
+    6400022: Box1472_001
+    6400024: Box1479_001
+    6400026: Box1492_001
+    6400028: Box1501_001
+    6400030: Box1609_001
+    6400032: Box1690_001
+    6400034: Box1704_001
+    6400036: Box1709_001
+    6400038: Box1711_001
+    6400040: Box1718_001
+    6400042: Box1741_001
+    6400044: Box1743_001
+    6400046: Box1758_001
+    6400048: Box1769_001
+    6400050: Box1775_001
+    6400052: Box1776_001
+    6400054: Box1781_001
+    6400056: Box1782_001
+    6400058: Circle
+    6400060: Cylinder002_001
+    6400062: Cylinder019_001
+    6400064: Cylinder027_001
+    6400066: Cylinder042_001
+    6400068: Cylinder044_001
+    6400070: Gengon001_003
+    6400072: Gengon001mol001_001
+    6400074: Gengon001mol_001
+    6400076: Gengon004_003
+    6400078: Gengon010_003
+    6400080: Gengon013_003
+    6400082: Gengon014_003
+    6400084: Gengon015_003
+    6400086: Gengon018_003
+    6400088: Gengon037_003
+    6400090: Gengon038_003
+    6400092: Gengon039_003
+    6400094: Gengon044_003
+    6400096: Gengon211_000
+    6400098: Gengon211_001
+    6400100: Gengon211_002
+    6400102: Gengon224_001
+    6400104: Gengon233_001
+    6400106: Gengon234_001
+    6400108: Gengon236_001
+    6400110: Gengon248_001
+    6400112: Gengon251_001
+    6400114: Gengon286_001
+    6400116: Gengon287_001
+    6400118: GeoSphere006_003
+    6400120: GeoSphere007_003
+    6400122: GeoSphere008_003
+    6400124: GeoSphere015_003
+    6400126: GeoSphere018_003
+    6400128: GeoSphere036_003
+    6400130: GeoSphere037_003
+    6400132: GeoSphere038_003
+    6400134: GeoSphere039_003
+    6400136: GeoSphere082_001
+    6400138: GeoSphere085_001
+    6400140: GeoSphere086_003
+    6400142: GeoSphere087_003
+    6400144: GeoSphere088_003
+    6400146: GeoSphere092_001
+    6400148: GeoSphere167_003
+    6400150: GeoSphere168_003
+    6400152: GeoSphere169_003
+    6400154: Line038_003
+    6400156: Line050_003
+    6400158: Line068_001
+    6400160: Line070_001
+    6400162: Object002_001
+    6400164: Object004_001
+    6400166: Pyramid001_003
+    6400168: Pyramid005_003
+    6400170: rock_001
+    6400172: rock_2_001
+    6400174: rock_3_001
+    6400176: rock_4_001
+    6400178: rock_5_001
+    6400180: Torus001_001
+    6400182: tree_no_leaves_001
+    6400184: Tube094_001
+    6400186: Tube149_001
+    6400188: Tube150_001
+    6400190: Tube151_001
+    6400192: Tube152_001
+    6400194: Tube153_001
+    6400196: Tube154_001
+    6400198: Tube155_001
     7400000: Default Take
     9500000: //RootNode
   materials:
@@ -591,9 +691,9 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 10
+    globalScale: 2
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
