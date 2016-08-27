@@ -25,6 +25,8 @@ public class TimeManager : MonoBehaviour
 
     public float nextRot;
 
+    int increment;
+
 	void Start ()
     {
         if (Sun == null)
@@ -35,16 +37,19 @@ public class TimeManager : MonoBehaviour
 
         nextRot = Sun.transform.rotation.x + 15;
         sunPos = 1;
+        increment = 0;
 	}
 
     void FixedUpdate()
     {
+        increment++;
+
         Sun.transform.Rotate(new Vector3(RotSpeed, RotSpeed, 0));
 
-        if(Sun.transform.rotation.x >= nextRot)
+        if(increment * RotSpeed >= nextRot)
         {
             sunPos++;
-            nextRot = Sun.transform.rotation.x + 15;
+            nextRot += 15;
         }
     }
 }
