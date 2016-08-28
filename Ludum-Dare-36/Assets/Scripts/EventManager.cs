@@ -48,13 +48,6 @@ public class EventManager : MonoBehaviour
         if (index < Actions.Count)
             Actions[index].Invoke();
         Debug.Log("Activate");
-        
     }
-
- 
-   
-
-    
-    
 }
 
