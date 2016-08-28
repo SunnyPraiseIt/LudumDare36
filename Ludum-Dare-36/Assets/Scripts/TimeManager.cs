@@ -102,5 +102,25 @@ public class TimeManager : MonoBehaviour
     void Level4Complete()
     {
         lvl4 = true;
+
+        //switch(sunPos)
+        //{
+        //    case 1:
+        //        //open first door
+        //        break;
+        //    case 3:
+        //        //open second door
+        //        break;
+        //    case 6:
+        //        //open thrid door
+        //        break;
+        //    case 9:
+        //        //open fourth door
+        //        break;
+        //    case 12:
+        //        //if not all things finished lose condition
+        //        //else win condition
+        //        break;
+        //}
     }
 }
