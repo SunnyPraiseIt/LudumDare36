@@ -28,7 +28,14 @@ public class PlayerShit : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2)), out hit, 2) && !holdingSomething)
         {
-            message.text = "Left Click to Pick Up";
+            if (hit.transform.tag == "Active")
+            {
+                message.text = "Left Click to Activate";
+            }
+            else if (hit.transform.tag == "PickUp")
+            {
+                message.text = "Left Click to Pick Up";
+            }
 
         }
         else if (holdingSomething)
@@ -46,8 +53,6 @@ public class PlayerShit : MonoBehaviour
             message.text = null;
         }
 
-
-
         //Actions
 
         #region Actions
@@ -60,8 +65,6 @@ public class PlayerShit : MonoBehaviour
             DropItem();
         }
         #endregion
-
-
     }
 
     void PickItemUp()
@@ -69,7 +72,7 @@ public class PlayerShit : MonoBehaviour
         RaycastHit hit;
         Ray rey = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
 
-        bool why = Physics.Raycast(rey, out hit, 20);
+        bool why = Physics.Raycast(rey, out hit, 25);
         Debug.DrawLine(transform.position, hit.point, Color.red, 300);
         if (why)
         {
