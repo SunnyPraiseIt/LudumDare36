@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerShit : MonoBehaviour
@@ -7,6 +8,9 @@ public class PlayerShit : MonoBehaviour
     float pickUpDist = 200f;
     [SerializeField]
     GameObject carriedObj = null;
+    Vector3 objCenter;
+    [SerializeField]
+    Text message = null;
 
     bool holdingSomething = false;
 
@@ -20,12 +24,35 @@ public class PlayerShit : MonoBehaviour
     void Update()
     {
         transform.localPosition = new Vector3(0, 0, 0);
+
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2)), out hit, 2) && !holdingSomething)
+        {
+            message.text = "Left Click to Pick Up";
+
+        }
+        else if (holdingSomething)
+        {
+            message.text = "Right Click to Drop";
+
+            //if not in the center lerp there
+            if (carriedObj.transform.localPosition != new Vector3(0, 0, 2))
+                carriedObj.transform.localPosition = Vector3.Lerp(carriedObj.transform.localPosition, new Vector3(0, 0, 2), .01f);
+
+            carriedObj.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        }
+        else
+        {
+            message.text = null;
+        }
+
+
+
         //Actions
 
         #region Actions
         if ((Input.GetMouseButtonDown(0) && !holdingSomething))
         {
-            Debug.Log("PICK UP");
             PickItemUp();
         }
         else if (Input.GetMouseButtonDown(1) && holdingSomething)
@@ -46,11 +73,10 @@ public class PlayerShit : MonoBehaviour
         Debug.DrawLine(transform.position, hit.point, Color.red, 300);
         if (why)
         {
-            Debug.Log("RAY HIT");
             PickUP p = hit.collider.GetComponent<PickUP>();
+            objCenter = hit.point;
             if (p != null)
             {
-                Debug.Log("Pick me the fuck up");
                 carriedObj = p.gameObject;
                 carriedObj.transform.parent = Camera.main.transform;
                 holdingSomething = true;
@@ -62,6 +88,7 @@ public class PlayerShit : MonoBehaviour
     void DropItem()
     {
         carriedObj.gameObject.GetComponent<Rigidbody>().useGravity = true;
+        carriedObj.transform.parent = null;
         carriedObj = null;
         holdingSomething = false;
     }
