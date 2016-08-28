@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 85ec8d8c896391b47a069848ec82d4cf
 timeCreated: 1472428078
 licenseType: Free
@@ -12,6 +13,14 @@ ModelImporter:
     4300000: Cylinder
     7400000: Default Take
     9500000: //RootNode
+=======
+guid: 56598328e584eb7449e55976117418b3
+timeCreated: 1472427674
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName: {}
+>>>>>>> origin/master
   materials:
     importMaterials: 1
     materialName: 0
