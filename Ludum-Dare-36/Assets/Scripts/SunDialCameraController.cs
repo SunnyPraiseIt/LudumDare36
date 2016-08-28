@@ -9,9 +9,15 @@ public class SunDialCameraController : MonoBehaviour
     
     [SerializeField]
     GameObject Player;
-    
-	// Use this for initialization
-	void Start ()
+
+    [SerializeField]
+    float TimeSwitchToCameraInSeconds = .5f;
+
+    [SerializeField]
+    float CameraLookTimeInSeconds = 5.0f;
+
+    // Use this for initialization
+    void Start ()
 	{
         
 	    ThisCamera = GetComponent<Camera>();
@@ -36,8 +42,8 @@ public class SunDialCameraController : MonoBehaviour
     void PanToSunDial()     //this turns on the sundial camera
     {
         Debug.Log("Panning Camera");
-      Invoke("CameraSwitch",.5f);   //Half a second it goes to camera
-      Invoke("CameraSwitch",5);  //Pan Back 5 seconds later;
+      Invoke("CameraSwitch",TimeSwitchToCameraInSeconds);   //Half a second it goes to camera
+      Invoke("CameraSwitch",CameraLookTimeInSeconds);  //Pan Back 5 seconds later;
     }
 
     void CameraSwitch()
