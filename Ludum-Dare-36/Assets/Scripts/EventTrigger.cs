@@ -20,7 +20,7 @@ public class EventTrigger : MonoBehaviour
 
     public void StartTrigger(int Index)
     {
-        Debug.Log("Trigger");
+        Debug.Log("TriggerCamera");
         EM.Activate(Index);
     }
 }

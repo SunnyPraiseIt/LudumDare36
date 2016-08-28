@@ -7,11 +7,17 @@ public class SunDialCameraController : MonoBehaviour
     private Camera ThisCamera;
     private EventManager manager;
     
+    [SerializeField]
+    GameObject Player;
+    
 	// Use this for initialization
 	void Start ()
 	{
+        
 	    ThisCamera = GetComponent<Camera>();
-	    MainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+	    ThisCamera.enabled = false;
+	    MainCamera = Player.GetComponent<Camera>();
+	   // MainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 	    if (manager == null)
 	    {
 	        manager = GameObject.Find("EventManager").GetComponent<EventManager>();
@@ -29,12 +35,14 @@ public class SunDialCameraController : MonoBehaviour
 
     void PanToSunDial()     //this turns on the sundial camera
     {
-      Invoke("CameraSwitch",500);   //Half a second it goes to camera
-      Invoke("CameraSwitch",5000);  //Pan Back 5 seconds later;
+        Debug.Log("Panning Camera");
+      Invoke("CameraSwitch",.5f);   //Half a second it goes to camera
+      Invoke("CameraSwitch",5);  //Pan Back 5 seconds later;
     }
 
     void CameraSwitch()
     {
+        Debug.Log("CameraSwitch");
         MainCamera.enabled = !MainCamera.enabled;
         ThisCamera.enabled = !ThisCamera.enabled;
     }

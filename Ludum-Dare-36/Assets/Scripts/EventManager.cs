@@ -10,7 +10,7 @@ public class EventManager : MonoBehaviour
 {
     public enum EVENTS
     {
-      
+        //if you add an event, add 1 to the for loop in OnEnable 
       Puzzle1Complete,
       Puzzle2Start,
       Puzzle2Complete,
@@ -26,7 +26,7 @@ public class EventManager : MonoBehaviour
     List<UnityEvent> Actions = new List<UnityEvent>();
     void OnEnable()
     {
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 9; i++)
         {
             UnityEvent Checkpoint = new UnityEvent();
             Actions.Add(Checkpoint);
@@ -47,7 +47,6 @@ public class EventManager : MonoBehaviour
     {
         if (index < Actions.Count)
             Actions[index].Invoke();
-        Debug.Log("Activate");
     }
 }
 
