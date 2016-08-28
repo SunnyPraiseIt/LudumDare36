@@ -103,24 +103,23 @@ public class TimeManager : MonoBehaviour
     {
         lvl4 = true;
 
-        //switch(sunPos)
-        //{
-        //    case 1:
-        //        //open first door
-        //        break;
-        //    case 3:
-        //        //open second door
-        //        break;
-        //    case 6:
-        //        //open thrid door
-        //        break;
-        //    case 9:
-        //        //open fourth door
-        //        break;
-        //    case 12:
-        //        //if not all things finished lose condition
-        //        //else win condition
-        //        break;
-        //}
+        switch(sunPos)
+        {
+            case 3:
+                manager.Activate((int)EventManager.EVENTS.Puzzle2Start);
+                break;
+            case 6:
+                manager.Activate((int)EventManager.EVENTS.Puzzle3Start);
+                break;
+            case 9:
+                manager.Activate((int)EventManager.EVENTS.Puzzle4Start);
+                break;
+            case 12:
+                if (lvl1 && lvl2 && lvl3 && lvl4)
+                    manager.Activate((int)EventManager.EVENTS.WinGame);
+                else
+                    manager.Activate((int)EventManager.EVENTS.LoseGame);
+                break;
+        }
     }
 }
