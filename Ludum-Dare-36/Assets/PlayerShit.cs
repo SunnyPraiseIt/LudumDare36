@@ -6,10 +6,9 @@ public class PlayerShit : MonoBehaviour
 
     float pickUpDist = 200f;
     [SerializeField]
-    Transform carriedObj = null;
+    GameObject carriedObj = null;
 
     bool holdingSomething = false;
-    //int Layer = LayerMask.NameToLayer("PickUp");
 
     // Use this for initialization
     void Start()
@@ -20,17 +19,16 @@ public class PlayerShit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
-
+        transform.localPosition = new Vector3(0, 0, 0);
         //Actions
 
         #region Actions
-        if ((Input.GetMouseButton(0) && !holdingSomething)) //&& Physics.Raycast(transform.position, transform.forward, 25, Layer))
+        if ((Input.GetMouseButtonDown(0) && !holdingSomething))
         {
-           PickItemUp();
+            Debug.Log("PICK UP");
+            PickItemUp();
         }
-        else if (Input.GetMouseButtonUp(0) && holdingSomething)
+        else if (Input.GetMouseButtonDown(1) && holdingSomething)
         {
             DropItem();
         }
@@ -42,25 +40,30 @@ public class PlayerShit : MonoBehaviour
     void PickItemUp()
     {
         RaycastHit hit;
-        Ray rey = new Ray(Camera.main.transform.position, Camera.main.transform.forward); //Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray rey = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
 
-        if(Physics.Raycast(rey,out hit, pickUpDist))
+        bool why = Physics.Raycast(rey, out hit, 20);
+        Debug.DrawLine(transform.position, hit.point, Color.red, 300);
+        if (why)
         {
-            carriedObj = hit.collider.GetComponent<Collider>().transform;
-        }
-        
-        if (carriedObj != null)
-        {
-            Destroy(carriedObj.GetComponent<Rigidbody>());
-            carriedObj.parent = transform;
-            holdingSomething = true;
+            Debug.Log("RAY HIT");
+            PickUP p = hit.collider.GetComponent<PickUP>();
+            if (p != null)
+            {
+                Debug.Log("Pick me the fuck up");
+                carriedObj = p.gameObject;
+                carriedObj.transform.parent = Camera.main.transform;
+                holdingSomething = true;
+                p.gameObject.GetComponent<Rigidbody>().useGravity = false;
+            }
         }
     }
 
     void DropItem()
     {
-        carriedObj.parent = null;
-        carriedObj.gameObject.AddComponent(typeof(Rigidbody));
+        carriedObj.gameObject.GetComponent<Rigidbody>().useGravity = true;
         carriedObj = null;
+        holdingSomething = false;
     }
+
 }
