@@ -14,5 +14,5 @@ E:/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll
 <<<<<<< HEAD
 =======
 E:/Unity/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
->>>>>>> 0ecbe14e7fe85b58ef2736e2e40f60e1730f9b13
+>>>>>>> origin/master
 C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/2015/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll
