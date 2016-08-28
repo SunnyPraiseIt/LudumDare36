@@ -38,7 +38,7 @@ public class EventManager : MonoBehaviour
 
     }
 
-    public void AddLisener(int i, UnityAction function)
+    public void AddListener(int i, UnityAction function)
     {
         Actions[i].AddListener(function);
     }

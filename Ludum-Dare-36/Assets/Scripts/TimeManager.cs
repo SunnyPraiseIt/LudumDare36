@@ -41,10 +41,10 @@ public class TimeManager : MonoBehaviour
         if (manager == null)
             manager = GameObject.Find("EventManager").GetComponent<EventManager>();
 
-        manager.AddLisener((int)EventManager.EVENTS.Puzzle1Complete, Level1Complete);
-        manager.AddLisener((int)EventManager.EVENTS.Puzzle2Complete, Level2Complete);
-        manager.AddLisener((int)EventManager.EVENTS.Puzzle3Complete, Level3Complete);
-        manager.AddLisener((int)EventManager.EVENTS.Puzzle4Complete, Level4Complete);
+        manager.AddListener((int)EventManager.EVENTS.Puzzle1Complete, Level1Complete);
+        manager.AddListener((int)EventManager.EVENTS.Puzzle2Complete, Level2Complete);
+        manager.AddListener((int)EventManager.EVENTS.Puzzle3Complete, Level3Complete);
+        manager.AddListener((int)EventManager.EVENTS.Puzzle4Complete, Level4Complete);
 
         nextRot = Sun.transform.rotation.x + 15;
         sunPos = 1;
