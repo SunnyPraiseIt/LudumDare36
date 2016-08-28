@@ -56,7 +56,7 @@ public class TimeManager : MonoBehaviour
     {
         increment++;
 
-        Sun.transform.Rotate(new Vector3(RotSpeed, RotSpeed, 0));
+        Sun.transform.Rotate(new Vector3(RotSpeed, 0, 0));
 
         if(increment * RotSpeed >= nextRot)
         {
