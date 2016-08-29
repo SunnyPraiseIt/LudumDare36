@@ -14,6 +14,8 @@ public class PlayerShit : MonoBehaviour
     Text message = null;
 
     bool holdingSomething = false;
+    //Change this to allow access to the final stone PATRICK
+    public bool isTime = false;
 
     [SerializeField] int throwSpeed = 1;
     bool moving = false;
@@ -62,7 +64,17 @@ public class PlayerShit : MonoBehaviour
         #region Actions
         if ((Input.GetMouseButtonDown(0) && !holdingSomething))
         {
-            PickItemUp();
+            Physics.Raycast(Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2)), out hit, 20);
+            if (hit.transform.tag == "Active")
+            {
+                //PATRICK!!!
+                ActivateStone();
+            }
+            else if (hit.transform.tag == "PickUp")
+            {
+                PickItemUp();
+            }
+            
         }
         else if (Input.GetMouseButtonDown(1) && holdingSomething)
         {
@@ -90,7 +102,6 @@ public class PlayerShit : MonoBehaviour
         Ray rey = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
 
         bool why = Physics.Raycast(rey, out hit, 25);
-        Debug.DrawLine(transform.position, hit.point, Color.red, 300);
         if (why)
         {
             PickUP p = hit.collider.GetComponent<PickUP>();
@@ -116,4 +127,17 @@ public class PlayerShit : MonoBehaviour
         holdingSomething = false;
     }
 
+    //PATRICK
+    void ActivateStone()
+    {
+        RaycastHit hit;
+        Ray rey = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
+
+        bool why = Physics.Raycast(rey, out hit, 25);
+        GameObject stoner = hit.collider.gameObject;
+
+        stoner.GetComponent<StoneScript>().ActivateMe();
+
+
+    }
 }

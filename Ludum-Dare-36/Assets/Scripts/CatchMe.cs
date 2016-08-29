@@ -3,12 +3,17 @@ using System.Collections;
 
 public class CatchMe : MonoBehaviour
 {
+    [SerializeField]
+    GameObject finalLocal = null;
 
     void OnTriggerEnter(Collider c)
     {
         if (c.tag == "Player")
         {
-            c.transform.position = c.GetComponentInChildren<PlayerShit>().originPos;
+            if (c.GetComponent<PlayerShit>().isTime)
+                c.transform.position = finalLocal.transform.position;
+            else
+                c.transform.position = c.GetComponentInChildren<PlayerShit>().originPos;
         }
         else if (c.tag == "PickUp")
         {
