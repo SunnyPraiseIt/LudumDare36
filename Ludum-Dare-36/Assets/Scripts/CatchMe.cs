@@ -1,0 +1,21 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class CatchMe : MonoBehaviour
+{
+
+    void OnTriggerEnter(Collider c)
+    {
+        if (c.tag == "Player")
+        {
+            c.transform.position = c.GetComponentInChildren<PlayerShit>().originPos;
+        }
+        else if (c.tag == "PickUp")
+        {
+            c.transform.position = new Vector3(Random.Range(-300, 301),
+                150,
+                Random.Range(-300, 301));
+            c.GetComponent<Rigidbody>().velocity = new Vector3();
+        }
+    }
+}

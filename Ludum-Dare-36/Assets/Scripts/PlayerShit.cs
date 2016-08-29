@@ -9,6 +9,7 @@ public class PlayerShit : MonoBehaviour
     [SerializeField]
     GameObject carriedObj = null;
     Vector3 objCenter;
+    public Vector3 originPos;
     [SerializeField]
     Text message = null;
 
@@ -17,7 +18,7 @@ public class PlayerShit : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        originPos = transform.position;
     }
 
     // Update is called once per frame
@@ -26,7 +27,7 @@ public class PlayerShit : MonoBehaviour
         transform.localPosition = new Vector3(0, 0, 0);
 
         RaycastHit hit;
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2)), out hit, 2) && !holdingSomething)
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2)), out hit, 20) && !holdingSomething)
         {
             if (hit.transform.tag == "Active")
             {
@@ -91,6 +92,7 @@ public class PlayerShit : MonoBehaviour
     void DropItem()
     {
         carriedObj.gameObject.GetComponent<Rigidbody>().useGravity = true;
+        carriedObj.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 1 * transform.position.z);
         carriedObj.transform.parent = null;
         carriedObj = null;
         holdingSomething = false;
