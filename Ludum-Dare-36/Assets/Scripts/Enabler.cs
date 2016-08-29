@@ -6,7 +6,9 @@ public class Enabler : MonoBehaviour
 
     [SerializeField]
     GameObject stone = null;
-    GameObject portal = null;
+
+    [SerializeField]
+    GameObject[] portal;
 
     int i = 0;
 
@@ -15,7 +17,9 @@ public class Enabler : MonoBehaviour
         if (i >= 10)
         {
             stone.SetActive(true);
-            portal.SetActive(false);
+
+            for(int j = 0; j < portal.Length; ++j)
+                portal[i].SetActive(false);
         }
     }
     void OnTriggerEnter()
