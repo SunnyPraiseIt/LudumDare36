@@ -147,10 +147,12 @@ public class SunDialCameraController : MonoBehaviour
 
     void MoveToVolcano()
     {
-        ThisCamera.gameObject.transform.position = new Vector3(135.7f,93f,-1.2f);
-        ThisCamera.gameObject.transform.rotation = new Quaternion(0,180,0,0);
         MainCamera.enabled = !MainCamera.enabled;
         ThisCamera.enabled = !ThisCamera.enabled;
+        ThisCamera.gameObject.transform.position = new Vector3(135.7f, 93f, -1.2f);
+        ThisCamera.gameObject.transform.rotation = new Quaternion(0, 180, 0, 0);
+        originPosition = transform.position;
+        originRotation = transform.rotation;
         shake_intensity = .3f;
         shake_decay = 0.002f;
     }

@@ -22,7 +22,7 @@ public class TestingEvents : MonoBehaviour
         if (passed)
         {
         Debug.Log("Collision");
-        ET.StartTrigger((int)EventManager.EVENTS.LoseGame);     
+        ET.StartTrigger((int)EventManager.EVENTS.Puzzle4Complete);     
         }
     }
 }
