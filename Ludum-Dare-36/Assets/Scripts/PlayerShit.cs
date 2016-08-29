@@ -15,6 +15,9 @@ public class PlayerShit : MonoBehaviour
 
     bool holdingSomething = false;
 
+    [SerializeField] int throwSpeed = 1;
+    bool moving = false;
+
     // Use this for initialization
     void Start()
     {
@@ -45,7 +48,7 @@ public class PlayerShit : MonoBehaviour
 
             //if not in the center lerp there
             if (carriedObj.transform.localPosition != new Vector3(0, 0, 2))
-                carriedObj.transform.localPosition = Vector3.Lerp(carriedObj.transform.localPosition, new Vector3(0, 0, 2), .01f);
+                carriedObj.transform.localPosition = Vector3.Lerp(carriedObj.transform.localPosition, new Vector3(0, 0, 2 + carriedObj.transform.localScale.z), .01f);
 
             carriedObj.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         }
@@ -65,7 +68,20 @@ public class PlayerShit : MonoBehaviour
         {
             DropItem();
         }
+
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.W))
+        {
+            moving = true;
+        }
+        else if(Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.W))
+        {
+            moving = false;
+        }
         #endregion
+        if (moving)
+            throwSpeed = 10;
+        else
+            throwSpeed = 1;
     }
 
     void PickItemUp()
@@ -92,7 +108,9 @@ public class PlayerShit : MonoBehaviour
     void DropItem()
     {
         carriedObj.gameObject.GetComponent<Rigidbody>().useGravity = true;
-        carriedObj.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 1 * transform.position.z);
+        carriedObj.transform.rotation = transform.rotation;
+        carriedObj.transform.forward = transform.forward;
+        carriedObj.GetComponent<Rigidbody>().AddForce(carriedObj.transform.forward * 1000 * ((carriedObj.GetComponent<Rigidbody>().mass * throwSpeed) / 2));
         carriedObj.transform.parent = null;
         carriedObj = null;
         holdingSomething = false;
