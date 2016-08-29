@@ -135,6 +135,7 @@ ModelImporter:
     100254: Windmill
     100256: Windmill_Broken
     100258: Wood_Shed
+    100260: Box1781_000
     400000: Apples
     400002: Box002_000
     400004: Box009_000
@@ -265,6 +266,7 @@ ModelImporter:
     400254: Windmill
     400256: Windmill_Broken
     400258: Wood_Shed
+    400260: Box1781_000
     2300000: Box002_000
     2300002: Box009_000
     2300004: Box012_000
@@ -365,6 +367,7 @@ ModelImporter:
     2300194: Tube153_001
     2300196: Tube154_001
     2300198: Tube155_001
+    2300200: Box1781_000
     3300000: Box002_000
     3300002: Box009_000
     3300004: Box012_000
@@ -465,6 +468,7 @@ ModelImporter:
     3300194: Tube153_001
     3300196: Tube154_001
     3300198: Tube155_001
+    3300200: Box1781_000
     4300000: Circle
     4300002: rock_4_001
     4300004: rock_2_001
@@ -565,6 +569,7 @@ ModelImporter:
     4300194: Box1501_001
     4300196: Box1448_001
     4300198: Box1472_001
+    4300200: Box1781_000
     6400000: Box002_000
     6400002: Box009_000
     6400004: Box012_000
@@ -665,6 +670,7 @@ ModelImporter:
     6400194: Tube153_001
     6400196: Tube154_001
     6400198: Tube155_001
+    6400200: Box1781_000
     7400000: Default Take
     9500000: //RootNode
   materials:
