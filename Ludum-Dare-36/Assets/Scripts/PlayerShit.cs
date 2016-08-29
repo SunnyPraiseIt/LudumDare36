@@ -17,7 +17,8 @@ public class PlayerShit : MonoBehaviour
     //Change this to allow access to the final stone PATRICK
     public bool isTime = false;
 
-    [SerializeField] int throwSpeed = 1;
+    [SerializeField]
+    int throwSpeed = 1;
     bool moving = false;
 
     // Use this for initialization
@@ -74,7 +75,7 @@ public class PlayerShit : MonoBehaviour
             {
                 PickItemUp();
             }
-            
+
         }
         else if (Input.GetMouseButtonDown(1) && holdingSomething)
         {
@@ -85,7 +86,7 @@ public class PlayerShit : MonoBehaviour
         {
             moving = true;
         }
-        else if(Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.W))
+        else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.W))
         {
             moving = false;
         }
@@ -134,9 +135,13 @@ public class PlayerShit : MonoBehaviour
         Ray rey = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
 
         bool why = Physics.Raycast(rey, out hit, 25);
-        GameObject stoner = hit.collider.gameObject;
+        if (why)
+        {
+            GameObject stoner = hit.collider.gameObject;
 
-        stoner.GetComponent<StoneScript>().ActivateMe();
+            stoner.GetComponent<StoneScript>().ActivateMe();
+        }
+
 
 
     }
