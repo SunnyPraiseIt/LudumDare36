@@ -64,6 +64,7 @@ public class SunDialCameraController : MonoBehaviour
         manager.AddListener((int)EventManager.EVENTS.Puzzle2Complete, PanToSunDial);
         manager.AddListener((int)EventManager.EVENTS.Puzzle3Complete, PanToSunDial);
         manager.AddListener((int)EventManager.EVENTS.Puzzle4Complete, YouWin);
+       // manager.AddListener((int)EventManager.EVENTS.WinGame, YouWin);
         manager.AddListener((int)EventManager.EVENTS.LoseGame,YouLose);
     }
 	

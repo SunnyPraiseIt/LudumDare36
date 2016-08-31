@@ -13,18 +13,27 @@ public class PlayerShit : MonoBehaviour
     [SerializeField]
     Text message = null;
 
+    private EventManager manager;
     bool holdingSomething = false;
-    //Change this to allow access to the final stone PATRICK
+   
     public bool isTime = false;
 
-    [SerializeField]
-    int throwSpeed = 1;
+    [SerializeField] int throwSpeed = 1;
     bool moving = false;
+
+    private bool puzzle1complete = false;
+    private bool puzzle2complete = false;
+    private bool puzzle3complete = false;
 
     // Use this for initialization
     void Start()
     {
+        manager = GameObject.Find("EventManager").GetComponent<EventManager>();
+        manager.AddListener((int)EventManager.EVENTS.Puzzle1Complete, puzzle1Done);
+        manager.AddListener((int)EventManager.EVENTS.Puzzle2Complete, puzzle2Done);
+        manager.AddListener((int)EventManager.EVENTS.Puzzle3Complete, puzzle3Done);
         originPos = transform.position;
+        
     }
 
     // Update is called once per frame
@@ -75,7 +84,7 @@ public class PlayerShit : MonoBehaviour
             {
                 PickItemUp();
             }
-
+            
         }
         else if (Input.GetMouseButtonDown(1) && holdingSomething)
         {
@@ -86,7 +95,7 @@ public class PlayerShit : MonoBehaviour
         {
             moving = true;
         }
-        else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.W))
+        else if(Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.W))
         {
             moving = false;
         }
@@ -135,14 +144,40 @@ public class PlayerShit : MonoBehaviour
         Ray rey = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
 
         bool why = Physics.Raycast(rey, out hit, 25);
-        if (why)
+        GameObject stoner = hit.collider.gameObject;
+
+        stoner.GetComponent<StoneScript>().ActivateMe();
+
+
+    }
+
+    void puzzle1Done()
+    {
+        puzzle1complete = true;
+        if (puzzle1complete && puzzle2complete && puzzle3complete)
         {
-            GameObject stoner = hit.collider.gameObject;
-
-            stoner.GetComponent<StoneScript>().ActivateMe();
+            ItisTime();
         }
+    }
+    void puzzle2Done()
+    {
+        puzzle2complete = true;
+        if (puzzle1complete && puzzle2complete && puzzle3complete)
+        {
+            ItisTime();
+        }
+    }
+    void puzzle3Done()
+    {
+        puzzle3complete = true;
+        if (puzzle1complete && puzzle2complete && puzzle3complete)
+        {
+            ItisTime();
+        }
+    }
 
-
-
+    void ItisTime()
+    {
+        isTime = true;
     }
 }

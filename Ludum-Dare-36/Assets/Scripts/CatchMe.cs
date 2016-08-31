@@ -10,7 +10,7 @@ public class CatchMe : MonoBehaviour
     {
         if (c.tag == "Player")
         {
-            if (c.GetComponent<PlayerShit>().isTime)
+            if (c.GetComponentInChildren<PlayerShit>().isTime)
                 c.transform.position = finalLocal.transform.position;
             else
                 c.transform.position = c.GetComponentInChildren<PlayerShit>().originPos;

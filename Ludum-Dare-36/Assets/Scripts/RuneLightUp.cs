@@ -9,6 +9,9 @@ public class RuneLightUp : MonoBehaviour
     private SpriteRenderer SR;
 
     [SerializeField]
+    GameObject Emitter;
+
+    [SerializeField]
     EventManager.EVENTS Event;
    
     [SerializeField]
@@ -51,6 +54,7 @@ public class RuneLightUp : MonoBehaviour
                 else
                 {
                     Complete = true;
+                Emitter.SetActive(true);
                 }
 	    }
 	
@@ -58,8 +62,9 @@ public class RuneLightUp : MonoBehaviour
 
     void RuneActivate()
     {
-        Debug.Log("RuneOn");
+        //Debug.Log("RuneOn");
         RuneOn = true;
+        
     }
     
 }

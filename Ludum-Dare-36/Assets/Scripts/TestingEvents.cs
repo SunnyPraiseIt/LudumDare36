@@ -4,6 +4,8 @@ using System.Collections;
 public class TestingEvents : MonoBehaviour
 {
     private EventTrigger ET;
+    [SerializeField]
+    EventManager.EVENTS Activate;
 	// Use this for initialization
     private bool passed = false;
 	void Start ()
@@ -22,7 +24,7 @@ public class TestingEvents : MonoBehaviour
         if (passed)
         {
         Debug.Log("Collision");
-        ET.StartTrigger((int)EventManager.EVENTS.Puzzle4Complete);     
+        ET.StartTrigger((int)Activate);     
         }
     }
 }

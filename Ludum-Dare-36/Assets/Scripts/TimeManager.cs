@@ -76,10 +76,13 @@ public class TimeManager : MonoBehaviour
                 manager.Activate((int)EventManager.EVENTS.Puzzle4Start);
                 break;
             case 12:
-                if(lvl1 && lvl2 && lvl3 && lvl4)
-                    manager.Activate((int)EventManager.EVENTS.WinGame);
+                if (lvl1 && lvl2 && lvl3 && lvl4)
+                    manager.Activate((int) EventManager.EVENTS.WinGame);
                 else
-                    manager.Activate((int)EventManager.EVENTS.LoseGame);
+                {
+                    Debug.Log("LoseGame");
+                    manager.Activate((int) EventManager.EVENTS.LoseGame);
+                }
                 break;
         }
     }
